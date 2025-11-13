@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
-from .forms import SignUpForm, SettingsForm  # Make sure SettingsForm is imported
+from .forms import SignUpForm, SettingsForm  
 
 def signup_view(request):
     if request.method == 'POST':
