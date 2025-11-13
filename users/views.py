@@ -1,7 +1,8 @@
+from django.shortcuts import render
+
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
-from django.contrib.auth.decorators import login_required
-from .forms import SignUpForm, SettingsForm  # Make sure SettingsForm is imported
+from .forms import SignUpForm
 
 def signup_view(request):
     if request.method == 'POST':
@@ -27,14 +28,3 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
-
-@login_required
-def settings_view(request):
-    if request.method == 'POST':
-        form = SettingsForm(request.POST, instance=request.user.profile)
-        if form.is_valid():
-            form.save(request.user)
-            return redirect('dashboard')
-    else:
-        form = SettingsForm(instance=request.user.profile, initial={'email': request.user.email})
-    return render(request, 'users/settings.html', {'form': form})
