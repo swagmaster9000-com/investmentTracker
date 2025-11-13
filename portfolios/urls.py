@@ -1,0 +1,8 @@
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.portfolio_view, name='portfolio'),
+    path('add/', views.add_investment, name='add_investment'),
+]

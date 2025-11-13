@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Your Portfolio</h2>
+
+<p>Total Portfolio Value: ${{ total_value }}</p>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Date Added</th>
+  </tr>
+  {% for inv in investments %}
+  <tr>
+    <td>{{ inv.get_type_display }}</td>  {# shows the full name from INVESTMENT_CHOICES #}
+    <td>{{ inv.name }}</td>
+    <td>${{ inv.value }}</td>
+    <td>{{ inv.date_added }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<a href="{% url 'add_investment' %}">Add New Investment</a>
+{% endblock %}
