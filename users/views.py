@@ -1,7 +1,13 @@
 from django.shortcuts import render, redirect
+<<<<<<< HEAD
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib import messages
 from .forms import SignUpForm
+=======
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
+from .forms import SignUpForm, SettingsForm  
+>>>>>>> origin/main
 
 User = get_user_model()
 
@@ -57,6 +63,7 @@ def login_view(request):
 # ---------- LOGOUT ----------
 def logout_view(request):
     logout(request)
+<<<<<<< HEAD
     return redirect('/users/login/')
 
 
@@ -95,3 +102,17 @@ def reset_password(request, username):
         return redirect('login')
 
     return render(request, 'users/reset_password.html', {"username": username})
+=======
+    return redirect('login')
+
+@login_required
+def settings_view(request):
+    if request.method == 'POST':
+        form = SettingsForm(request.POST, instance=request.user.profile)
+        if form.is_valid():
+            form.save(request.user)
+            return redirect('dashboard')
+    else:
+        form = SettingsForm(instance=request.user.profile, initial={'email': request.user.email})
+    return render(request, 'users/settings.html', {'form': form})
+>>>>>>> origin/main

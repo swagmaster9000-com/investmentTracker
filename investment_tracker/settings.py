@@ -25,6 +25,10 @@ SECRET_KEY = 'django-insecure-u5sff*xh7t!h8km(%@ej!azwfnbf2(!o@oj!8r+&5+qgd-&z7$
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
@@ -40,8 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'core',
+<<<<<<< HEAD
     'rest_framework',
     'portfolios',
+=======
+    'django_extensions',
+>>>>>>> origin/main
 ]
 
 MIDDLEWARE = [
@@ -118,13 +126,10 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
+
 
 STATIC_URL = 'static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -132,6 +137,14 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = '/'
+<<<<<<< HEAD
 LOGOUT_REDIRECT_URL = '/users/login/'
 
 
+=======
+
+AUTHENTICATION_BACKENDS = [
+    'users.backends.UsernameOrEmailBackend',
+    'django.contrib.auth.backends.ModelBackend',  
+]
+>>>>>>> origin/main
