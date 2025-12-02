@@ -1,11 +1,21 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+<<<<<<< HEAD
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+=======
 from .models import CustomUser, Profile
+>>>>>>> origin/main
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(required=True)
 
     class Meta:
+<<<<<<< HEAD
+        model = User
+        fields = ["username", "email", "password1", "password2"]
+=======
         model = CustomUser
         fields = ['username', 'email', 'password1', 'password2']
 
@@ -32,3 +42,4 @@ class SettingsForm(forms.ModelForm):
             user.set_password(self.cleaned_data['password'])
         user.save()
         profile.save()
+>>>>>>> origin/main

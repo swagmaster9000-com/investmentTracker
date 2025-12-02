@@ -16,6 +16,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
@@ -24,7 +25,10 @@ SECRET_KEY = 'django-insecure-u5sff*xh7t!h8km(%@ej!azwfnbf2(!o@oj!8r+&5+qgd-&z7$
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/main
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
@@ -40,7 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'core',
+<<<<<<< HEAD
+    'rest_framework',
+    'portfolios',
+=======
     'django_extensions',
+>>>>>>> origin/main
 ]
 
 MIDDLEWARE = [
@@ -57,18 +66,20 @@ ROOT_URLCONF = 'investment_tracker.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR / "templates"],   # <-- ADD THIS
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'investment_tracker.wsgi.application'
 
@@ -122,12 +133,18 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = "users.CustomUser"
+AUTH_USER_MODEL = 'users.CustomUser'
 
 LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = '/'
+<<<<<<< HEAD
+LOGOUT_REDIRECT_URL = '/users/login/'
+
+
+=======
 
 AUTHENTICATION_BACKENDS = [
     'users.backends.UsernameOrEmailBackend',
     'django.contrib.auth.backends.ModelBackend',  
 ]
+>>>>>>> origin/main

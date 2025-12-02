@@ -5,6 +5,11 @@ from django.shortcuts import redirect
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
+<<<<<<< HEAD
+    path('', include('core.urls')),  # Root path goes to dashboard
+    path('portfolio/', include('portfolios.urls')),
+=======
     path('dashboard/', include('core.urls')),  
     path('', lambda request: redirect('dashboard')),  
+>>>>>>> origin/main
 ]
