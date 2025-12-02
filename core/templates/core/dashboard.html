@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+    <h1>Investment Tracker Dashboard</h1>
+    <p>Welcome, {{ request.user.username }}!</p>
+
+    <div class="buttons">
+        <a class="button" href="{% url 'portfolio_list' %}">📊 View Portfolio</a>
+        <a class="button" href="{% url 'add_investment' %}">➕ Add Investment</a>
+        <a class="button" href="{% url 'logout' %}">Logout</a>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Your Portfolio Summary</h2>
+    <p>(Placeholder — add charts, totals, etc later)</p>
+</div>
+
+{% endblock %}

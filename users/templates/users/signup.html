@@ -1,10 +1,17 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block content %}
-<h2>Sign Up</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create Account</button>
-</form>
-<p>Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
+
+<div class="card">
+    <h2>Create an Account</h2>
+    <p>Sign up to start using the Investment Tracker.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create Account</button>
+    </form>
+
+    <p>Already have an account? <a href="{% url 'login' %}">Login here.</a></p>
+</div>
+
 {% endblock %}

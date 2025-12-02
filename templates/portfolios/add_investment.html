@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Add Investment</h1>
+
+<div class="card">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button">Save Investment</button>
+        <a href="{% url 'portfolio_list' %}" class="button" style="background:#6c757d;">Cancel</a>
+    </form>
+</div>
+{% endblock %}
